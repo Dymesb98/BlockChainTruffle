@@ -7,16 +7,18 @@ contract Greeter {
     address private _owner;
     bytes32[] showArray;
     bytes32[5] ShowFixedArray;
+    // uint256 NameID;
     struct Profile {
-        string firstName;
-        string LastName;
+        string fName;
+        string lName;
         string city;
     }
-    Profile contact;
+
+    Profile profile;
 
     constructor() public {
         _owner = msg.sender;
-        _greeting="Good Evening";
+        _greeting = "Good Evening";
     }
 
     modifier onlyOwner() {
@@ -49,12 +51,21 @@ contract Greeter {
     }
 
     function setProfile() public {
-        contact = Profile("Jay", "Garrick", "Sydney");
+        profile = Profile("Elon", "Musk", "USA");
     }
 
-    function getProfile() public view returns (string memory) {
-        return contact.firstName;
+    function getProfile()
+        public
+        view
+        returns (
+            string memory,
+            string memory,
+            string memory
+        )
+    {
+        return (profile.fName, profile.lName, profile.city);
     }
+
     function payGreeter(uint256 NameID) public payable returns (uint256) {
         return NameID;
     }

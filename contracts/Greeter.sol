@@ -16,6 +16,7 @@ contract Greeter {
 
     constructor() public {
         _owner = msg.sender;
+        _greeting="Good Evening";
     }
 
     modifier onlyOwner() {

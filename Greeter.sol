@@ -31,7 +31,6 @@ contract Greeter {
     function setGreeting(string calldata greeting) external onlyOwner {
         _greeting = greeting;
     }
-
     function owner() public view returns (address) {
         return _owner;
     }
